@@ -8,9 +8,9 @@
 
         <div style="border:1px solid black; padding:10px; margin:10px" [ngClass]="{green : true}">ngClass Example: {{name | uppercase}}</div>
         
-        <div style="border:1px solid black; padding:10px; margin:10px">Pipe Example: {{date | date:'fullDate' | uppercase}}</div>
+        <div style="border:1px solid black; padding:10px; margin:10px">date uppercase Pipe Example: {{date | date:'fullDate' | uppercase}}</div>
 
-        <div style="border:1px solid black; padding:10px; margin:10px">Pipe Example: {{name | shortenPipe:2}}</div>
+        <div style="border:1px solid black; padding:10px; margin:10px">shorten Pipe Example: {{name | shortenPipe:2}}</div>
 
         <div style="border:1px solid black; padding:10px; margin:10px" appRendererDirective [defaultbackground]="'pink'">Directive Example</div>
 
@@ -51,7 +51,7 @@
         </div>
 
         <div style="border:1px solid black; padding:10px; margin:10px">
-            <p>ngModel Example: </p>
+            <p>filter Pipe Example: </p>
             <input type="text" [(ngModel)]="filterValue">
             <ul>
                 <li *ngFor="let item of list | filterPipe:filterValue">{{item}}</li>
@@ -59,7 +59,7 @@
         </div>
 
         <div style="border:1px solid black; padding:10px; margin:10px">
-            <input type="text" (keyup)="onKeyUp($event)" [(ngModel)]="name">
+            ngModel Example: <input type="text" (keyup)="onKeyUp($event)" [(ngModel)]="name">
         </div>
 
     </div>
@@ -73,7 +73,7 @@
         </app-child>
 
     </div>
-    
+
 </div>
 
 

@@ -15,7 +15,7 @@ export class PlaygroundComponent implements OnInit {
   list:any = [];
   name='Pranesh'
   date = new Date().toISOString()
-  disableClick = true
+  disableClick = false
   value=3
   title = 'my-angular-app';
   filterValue=''
@@ -118,6 +118,7 @@ export class PlaygroundComponent implements OnInit {
 
   onClick(event:any){
     console.log('clicked', event)
+    this.name = 'Name changed'
     this.dataService.data.push('new data')
     this.dataService.dataUpdated.emit('event data')
     this.dataService.subject.next('subject data')
