@@ -1,0 +1,82 @@
+<div>
+
+    <div style="border:1px solid black; padding:10px; margin:10px">
+
+         <h1>Parent Component</h1>
+    
+        <div style="border:1px solid black; padding:10px; margin:10px">Async Data: {{data | async}}</div>
+
+        <div style="border:1px solid black; padding:10px; margin:10px" [ngClass]="{green : true}">ngClass Example: {{name | uppercase}}</div>
+        
+        <div style="border:1px solid black; padding:10px; margin:10px">Pipe Example: {{date | date:'fullDate' | uppercase}}</div>
+
+        <div style="border:1px solid black; padding:10px; margin:10px">Pipe Example: {{name | shortenPipe:2}}</div>
+
+        <div style="border:1px solid black; padding:10px; margin:10px" appRendererDirective [defaultbackground]="'pink'">Directive Example</div>
+
+        <div style="border:1px solid black; padding:10px; margin:10px">
+            <p *ngIf="false; else reference"></p>
+            <ng-template #reference>
+                <p>ngIf Example</p>
+            </ng-template>
+        </div>
+
+        <div style="border:1px solid black; padding:10px; margin:10px" [ngStyle]="{color: false ? 'red' : 'green'}">
+            <p >ngSwitch Example: </p>
+            <div [ngSwitch]="value">
+                <div *ngSwitchCase="1">1</div>
+                <div *ngSwitchCase="2">2</div>
+                <div *ngSwitchCase="3">3</div>
+                <div *ngSwitchDefault>default</div>
+            </div>
+        </div>
+
+        <div style="border:1px solid black; padding:10px; margin:10px">
+            <p >ngFor Example: </p>
+            <ul *ngFor="let name of list; let i = index">
+                <li>{{name}}&nbsp;{{i}}</li>
+            </ul>
+        </div>
+        
+        <div style="border:1px solid black; padding:10px; margin:10px">
+            <button (click)="onClick(name)" [disabled]="disableClick">
+                Add Data
+            </button>
+        </div>
+        
+        <div style="border:1px solid black; padding:10px; margin:10px">
+            <input type="text" #myinput>
+            <button (click)="onClickRef(myinput.value)">Submit</button>
+            <div>local-reference Example: {{ valueInComponent }}</div>
+        </div>
+
+        <div style="border:1px solid black; padding:10px; margin:10px">
+            <p>ngModel Example: </p>
+            <input type="text" [(ngModel)]="filterValue">
+            <ul>
+                <li *ngFor="let item of list | filterPipe:filterValue">{{item}}</li>
+            </ul>
+        </div>
+
+        <div style="border:1px solid black; padding:10px; margin:10px">
+            <input type="text" (keyup)="onKeyUp($event)" [(ngModel)]="name">
+        </div>
+
+    </div>
+    
+    <div style="border:1px solid black; padding:10px; margin:10px">
+            
+        <h1>Child Component</h1>
+
+        <app-child [parent-data]="list" (childEvent)="parentClick($event)">
+            <div style="border:1px solid black; padding:10px; margin:10px" #parentelementref>ng-content Example</div>
+        </app-child>
+
+    </div>
+    
+</div>
+
+
+
+
+

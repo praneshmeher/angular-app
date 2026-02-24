@@ -1,0 +1,17 @@
+<div style="border:1px solid black; padding:10px; margin:10px">
+    
+    <div style="border:1px solid black; padding:10px; margin:10px">@Input Example: {{data}}</div>
+    
+    <ng-content></ng-content>
+    
+    <div style="border:1px solid black; padding:10px; margin:10px">
+        @ViewChild Example: <input type="text" #myinput>
+    </div>
+    
+    <div style="border:1px solid black; padding:10px; margin:10px">@Output() Example:
+        <button (click)="childClick()">
+            Child Click
+        </button>
+    </div> 
+    
+</div>
